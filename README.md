@@ -1,6 +1,6 @@
 
 
-#### miniapps_github
+#### miniapps_rero
 This guide provides instructions for running the miniapps. You must first ensure that your system is correctly configured.
 
 ##### Prerequisites
