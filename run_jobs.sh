@@ -25,7 +25,7 @@ mkdir -p result result/input/ result/output/
 
 ## for miniAMR
 if ! [ -f miniamr_latest.sif ]; then
-  singularity pull library://mhchowdhury/collection/miniamr 
+  singularity pull library://reproducibilitysc/reproducibility/miniamr
 fi
 ##submit with large queue and 120gb memory
 mpirun  -np 16 singularity run  --bind result:/opt/result miniamr_latest.sif  /opt/miniAMR/openmp/miniAMR.x --max_blocks 6000 --num_refine 4 --init_x 1 --init_y 1 --init_z 1 --npx 4 --npy 2 --npz 2 --nx 8 --ny 8 --nz 8 --num_objects 1 --object 2 0 -0.01 -0.01 -0.01 0.0 0.0 0.0 0.0 0.0 0.0 0.0009 0.0009 0.0009 --num_tsteps 200 --comm_vars 2 > result/output/miniamr_result16.txt
@@ -35,7 +35,7 @@ mpirun -np 64 singularity run --bind result:/opt/result miniamr_latest.sif  /opt
 
 ## for lulesh
 if ! [ -f lulesh_latest.sif ]; then
-  singularity pull library://mhchowdhury/collection/lulesh
+  singularity pull library://reproducibilitysc/reproducibility/lulesh
 fi
 
 mpirun -n 8 singularity run lulesh_latest.sif /opt/LULESH/./lulesh2.0 -s 2 > result/output/lulesh_result2_8.txt
@@ -45,7 +45,7 @@ mpirun -n 64 singularity run lulesh_latest.sif /opt/LULESH/./lulesh2.0 -s 4 > re
 
 
 if ! [ -f minivite_1.1.sif ]; then
-  singularity pull library://mhchowdhury/collection/minivite:1.1
+  singularity pull library://reproducibilitysc/reproducibility/minivite
 fi
 
 if ! [ -f result/input/neuron1024.bin ]; then
@@ -54,7 +54,7 @@ if ! [ -f result/input/neuron1024.bin ]; then
 fi
 
 
-mpirun -n 8 singularity run --bind result:/opt/result  minivite_1.1.sif  /opt/miniVite/./miniVite -f /opt/result/input/neuron1024.bin > result/output/minivite_result8.txt
-mpirun -n 32 singularity run --bind result:/opt/result  minivite_1.1.sif  /opt/miniVite/./miniVite -f /opt/result/input/neuron1024.bin > result/output/minivite_result32.txt
-mpirun -n 64 singularity run --bind result:/opt/result  minivite_1.1.sif  /opt/miniVite/./miniVite -f /opt/result/input/neuron1024.bin > result/output/minivite_result64.txt
+mpirun -n 8 singularity run --bind result:/opt/result  minivite_latest.sif  /opt/miniVite/./miniVite -f /opt/result/input/neuron1024.bin > result/output/minivite_result8.txt
+mpirun -n 32 singularity run --bind result:/opt/result  minivite_latest.sif  /opt/miniVite/./miniVite -f /opt/result/input/neuron1024.bin > result/output/minivite_result32.txt
+mpirun -n 64 singularity run --bind result:/opt/result  minivite_latest.sif  /opt/miniVite/./miniVite -f /opt/result/input/neuron1024.bin > result/output/minivite_result64.txt
 
