@@ -99,7 +99,7 @@ Next, pull the MiniAMR Singularity image from the cloud. The if statement ensure
 ```
 ## for miniAMR
 if ! [ -f miniamr_latest.sif ]; then
-  singularity pull library://mhchowdhury/collection/miniamr 
+  singularity pull library://reproducibilitysc/reproducibility/miniamr
 fi
 ```
 ##### 2. Running the Application
@@ -138,7 +138,7 @@ mkdir -p result result/input/ result/output/
 To get the LULESH image, run the following command. The if statement ensures the image is only downloaded if it doesn't already exist.
 ```
 if ! [ -f lulesh_latest.sif ]; then
-  singularity pull library://mhchowdhury/collection/lulesh
+  singularity pull library://reproducibilitysc/reproducibility/lulesh
 fi
 ```
 **Execution Commands** 
@@ -169,7 +169,7 @@ mkdir -p result result/input/ result/output/
 To get the miniVite image, run this command.
 ```
 if ! [ -f minivite_1.1.sif ]; then
-  singularity pull library://mhchowdhury/collection/minivite:1.1
+  singularity pull library://reproducibilitysc/reproducibility/minivite
 fi
 ```
 **Creating Input Data** 
