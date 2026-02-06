@@ -44,7 +44,7 @@ mpirun -n 64 singularity run lulesh_latest.sif /opt/LULESH/./lulesh2.0 -s 4 > re
 
 
 
-if ! [ -f minivite_1.1.sif ]; then
+if ! [ -f minivite_latest.sif ]; then
   singularity pull library://reproducibilitysc/reproducibility/minivite
 fi
 
