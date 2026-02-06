@@ -168,7 +168,7 @@ mkdir -p result result/input/ result/output/
 
 To get the miniVite image, run this command.
 ```
-if ! [ -f minivite_1.1.sif ]; then
+if ! [ -f minivite_latest.sif ]; then
   singularity pull library://reproducibilitysc/reproducibility/minivite
 fi
 ```
@@ -188,16 +188,16 @@ Run miniVite with different numbers of processors.
 
 
 ```
-mpirun -n 8 singularity run --bind result:/opt/result  minivite_1.1.sif  /opt/miniVite/./miniVite -f /opt/result/input/neuron1024.bin > result/output/minivite_result8.txt
+mpirun -n 8 singularity run --bind result:/opt/result  minivite_latest.sif  /opt/miniVite/./miniVite -f /opt/result/input/neuron1024.bin > result/output/minivite_result8.txt
 ```
 - Run with 32 processors:
 ```
 
-mpirun -n 32 singularity run --bind result:/opt/result  minivite_1.1.sif  /opt/miniVite/./miniVite -f /opt/result/input/neuron1024.bin > result/output/minivite_result32.txt
+mpirun -n 32 singularity run --bind result:/opt/result  minivite_latest.sif  /opt/miniVite/./miniVite -f /opt/result/input/neuron1024.bin > result/output/minivite_result32.txt
 ```
 - Run with 64 processors:
 ```
-mpirun -n 64 singularity run --bind result:/opt/result  minivite_1.1.sif  /opt/miniVite/./miniVite -f /opt/result/input/neuron1024.bin > result/output/minivite_result64.txt
+mpirun -n 64 singularity run --bind result:/opt/result  minivite_latest.sif  /opt/miniVite/./miniVite -f /opt/result/input/neuron1024.bin > result/output/minivite_result64.txt
 ```
 
 #### For reproducibility check:
